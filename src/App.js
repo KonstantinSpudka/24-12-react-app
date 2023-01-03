@@ -1,43 +1,47 @@
-import { Component } from 'react';
+// import { Component } from 'react';
 
-// import StopWatch from './Components/StopWatch';
+// import UserList from './Components/UserList';
 
 // function App() {
-//   return <StopWatch />;
+//   return <UserList />;
 // }
 
 // export default App;
 
-import StopWatch from './Components/ViewPortParametrs';
+import { Component } from 'react';
+import { FaChromecast } from 'react-icons/fa';
+import ThemeButton from './components/ThemeButton';
+import UsersList from './components/UsersList';
 
 class App extends Component {
-constructor(props){
-  super(props);
-  this.state = {
-    isVisible: false,
-  }
-}
+  constructor(props) {
+    super(props);
 
-handleClick = () => {
-  const {isVisible} = this.state;
-  this.setState({isVisible: !isVisible})
-}
+    this.state = {
+      isLight: true,
+    };
+  }
+
+  setTheme = () => {
+    const { isLight } = this.state;
+    this.setState({ isLight: !isLight });
+  };
 
   render() {
-    const {isVisible} = this.state;
- return (
-  <>
-   <button onClick={this.handleClick}>
-    {isVisible ? 'Unmount' : 'Mount'}
-  </button>
-  {isVisible&&<StopWatch />}
- 
-  </>
- )
- 
-
-    
+    const { isLight } = this.state;
+    return (
+      <>
+        <FaChromecast />
+        <ThemeButton isLight={isLight} changeTheme={this.setTheme} />
+        <UsersList isLight={isLight} />
+      </>
+    );
   }
 }
+
+// App;
+//   ThemeButton; напис
+//   UsersList;
+//     UsersListItem; підсвітка
 
 export default App;

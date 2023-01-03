@@ -25,6 +25,8 @@ class StopWatch extends Component {
     // не змінювари стан напряму!!! стан іммутабельний!!!
     const newCount = new Date(count.valueOf());
     console.log('tick');
+    // newCount.setHours(count.getHours());
+    // newCount.setMinutes(count.getMinutes());
     newCount.setSeconds(count.getSeconds() + 1);
     this.setState({ count: newCount });
   };

@@ -1,36 +1,35 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 
-class StopWatch extends Component {
-  constructor(props){
+class ViewPortParams extends Component {
+  constructor(props) {
     super(props);
-    console.log('constructor');
-    this.state = {count: 0};
+
+    this.state = {
+      x: window.innerWidth,
+      y: window.innerHeight,
+    };
   }
 
-componentDidMount(){
-  console.log('componentDidMount');
-}
+  resizeHandler = () => {
+    this.setState({ x: window.innerWidth, y: window.innerHeight });
+  };
 
-componentDidUpdate(){
-  console.log('componentDidUpdate');
-}
+  componentDidMount() {
+    window.addEventListener('resize', this.resizeHandler);
+  }
 
-componentWillUnmount(){
-  console.log('componentWillUnmount');
-}
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.resizeHandler);
+  }
 
   render() {
-
-    const {count} = this.state;
+    const { x, y } = this.state;
     return (
-     <>
       <div>
-        {count}
+        Width: {x}, Height: {y}
       </div>
-<button onClick={() => this.setState({count: count + 1})}>+</button>
-     </>
     );
   }
 }
 
-export default StopWatch;
+export default ViewPortParams;
