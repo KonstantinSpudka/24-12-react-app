@@ -1,56 +1,54 @@
-
-
-import { Component } from 'react';
-import getUsers from '../../api';
+import { Component } from 'react'
+import getUsers from '../../api'
 
 class UsersLoader extends Component {
   constructor (props) {
-    super(props);
+    super(props)
 
     this.state = {
       users: [],
       isFetching: false,
       error: null,
-      currentPage: 1,
-    };
+      currentPage: 1
+    }
   }
 
   loadUsers = () => {
-    const { currentPage } = this.state;
+    const { currentPage } = this.state
 
-    this.setState({ isFetching: true });
+    this.setState({ isFetching: true })
     getUsers({ page: currentPage, results: 5 })
       .then(data => this.setState({ users: data.results }))
       .catch(e => this.setState({ error: e }))
-      .finally(() => this.setState({ isFetching: false }));
-  };
+      .finally(() => this.setState({ isFetching: false }))
+  }
 
   componentDidMount () {
-    this.loadUsers();
+    this.loadUsers()
   }
 
   componentDidUpdate (prevProps, prevState) {
-    const { currentPage } = this.state;
+    const { currentPage } = this.state
 
     if (currentPage !== prevState.currentPage) {
-      this.loadUsers();
+      this.loadUsers()
     }
   }
 
   prevPage = () => {
-    const { currentPage } = this.state;
+    const { currentPage } = this.state
     if (currentPage > 1) {
-      this.setState({ currentPage: currentPage - 1 });
+      this.setState({ currentPage: currentPage - 1 })
     }
-  };
+  }
 
   nextPage = () => {
-    const { currentPage } = this.state;
-    this.setState({ currentPage: currentPage + 1 });
-  };
+    const { currentPage } = this.state
+    this.setState({ currentPage: currentPage + 1 })
+  }
 
   render () {
-    const { users, isFetching, error } = this.state;
+    const { users, isFetching, error } = this.state
 
     return (
       <>
@@ -68,8 +66,8 @@ class UsersLoader extends Component {
           </>
         )}
       </>
-    );
+    )
   }
 }
 
-export default UsersLoader;
+export default UsersLoader

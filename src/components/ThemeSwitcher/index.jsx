@@ -1,15 +1,15 @@
-import CONSTANTS from '../../constants';
-import ThemeContext from '../../contexts/themeContext';
+import CONSTANTS from '../../constants'
+import ThemeContext from '../../contexts/themeContext'
 
-const { LIGHT, DARK, PINK } = CONSTANTS.THEME;
+const { LIGHT, DARK, PINK } = CONSTANTS.THEME
 
 function ThemeSwitcher () {
   return (
     <ThemeContext.Consumer>
       {({ theme, setTheme }) => {
         const changeTheme = ({ target: { value } }) => {
-          setTheme(value);
-        };
+          setTheme(value)
+        }
 
         return (
           <select value={theme} onChange={changeTheme}>
@@ -17,10 +17,10 @@ function ThemeSwitcher () {
             <option value={DARK}>Dark</option>
             <option value={PINK}>Pink</option>
           </select>
-        );
+        )
       }}
     </ThemeContext.Consumer>
-  );
+  )
 }
 
-export default ThemeSwitcher;
+export default ThemeSwitcher

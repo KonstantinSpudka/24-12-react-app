@@ -1,19 +1,19 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react'
 
 function withDataLoading (WrappedComponent) {
   function WrappedComponentWithDataLoading ({ url, ...props }) {
-    const [data, setData] = useState([]);
-    const [isFetching, setIsFetching] = useState(false);
-    const [error, setError] = useState(null);
+    const [data, setData] = useState([])
+    const [isFetching, setIsFetching] = useState(false)
+    const [error, setError] = useState(null)
 
     useEffect(() => {
-      setIsFetching(true);
+      setIsFetching(true)
       fetch(url)
         .then(response => response.json())
         .then(data => setData(data))
         .catch(e => setError(e))
-        .finally(() => setIsFetching(false));
-    }, [url]);
+        .finally(() => setIsFetching(false))
+    }, [url])
 
     return (
       <WrappedComponent
@@ -22,10 +22,10 @@ function withDataLoading (WrappedComponent) {
         error={error}
         {...props}
       />
-    );
+    )
   }
 
-  return WrappedComponentWithDataLoading;
+  return WrappedComponentWithDataLoading
 }
 
-export default withDataLoading;
+export default withDataLoading

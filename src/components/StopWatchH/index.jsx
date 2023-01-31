@@ -1,34 +1,34 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react'
 
 function StopWatchH () {
-  const [count, setCount] = useState(new Date(0, 0, 0, 0, 0, 0, 0));
-  const [isRunning, setIsRunning] = useState(true);
+  const [count, setCount] = useState(new Date(0, 0, 0, 0, 0, 0, 0))
+  const [isRunning, setIsRunning] = useState(true)
 
   const tick = () => {
     setCount(count => {
-      const newCount = new Date(count.valueOf());
-      newCount.setSeconds(count.getSeconds() + 1);
-      return newCount;
-    });
-  };
+      const newCount = new Date(count.valueOf())
+      newCount.setSeconds(count.getSeconds() + 1)
+      return newCount
+    })
+  }
 
   const start = () => {
-    setIsRunning(isRunning => !isRunning);
-  };
+    setIsRunning(isRunning => !isRunning)
+  }
 
   const reset = () => {
-    setCount(new Date(0, 0, 0, 0, 0, 0, 0));
-  };
+    setCount(new Date(0, 0, 0, 0, 0, 0, 0))
+  }
 
   useEffect(() => {
-    let id;
+    let id
     if (isRunning) {
-      id = setTimeout(tick, 1000);
+      id = setTimeout(tick, 1000)
     }
     return () => {
-      clearTimeout(id);
-    };
-  });
+      clearTimeout(id)
+    }
+  })
 
   return (
     <article>
@@ -36,7 +36,7 @@ function StopWatchH () {
       <button onClick={start}>{isRunning ? 'Stop' : 'Start'}</button>
       <button onClick={reset}>Reset</button>
     </article>
-  );
+  )
 }
 
-export default StopWatchH;
+export default StopWatchH

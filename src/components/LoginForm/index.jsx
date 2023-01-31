@@ -1,62 +1,62 @@
-import React, { Component } from 'react';
-import classNames from 'classnames';
-import styles from './LoginForm.module.css';
+import React, { Component } from 'react'
+import classNames from 'classnames'
+import styles from './LoginForm.module.css'
 // state -> input
 // state <- input
 //        ^
 //     onChange
 
-const INITIAL_VALUES = { email: '', password: '' };
+const INITIAL_VALUES = { email: '', password: '' }
 
 const LOGIN_FORM_REX_EXP = {
   email: /^.+@.+$/,
-  password: /^(?=.*[A-Z].*)(?=.*[a-z].*)(?=.*\d.*)(?=.*[!@#$%^&*.].*).{8,20}$/,
-};
+  password: /^(?=.*[A-Z].*)(?=.*[a-z].*)(?=.*\d.*)(?=.*[!@#$%^&*.].*).{8,20}$/
+}
 
 class LoginForm extends Component {
   constructor (props) {
-    super(props);
+    super(props)
 
     this.state = {
       email: INITIAL_VALUES.email,
       isEmailValid: false,
       password: INITIAL_VALUES.password,
-      isPasswordValid: false,
-    };
+      isPasswordValid: false
+    }
   }
 
   handleEmailChange = ({ target: { value } }) => {
     this.setState({
       email: value,
-      isEmailValid: LOGIN_FORM_REX_EXP.email.test(value),
-    });
-  };
+      isEmailValid: LOGIN_FORM_REX_EXP.email.test(value)
+    })
+  }
 
   handlePasswordChange = ({ target: { value } }) => {
     this.setState({
       password: value,
-      isPasswordValid: LOGIN_FORM_REX_EXP.password.test(value),
-    });
-  };
+      isPasswordValid: LOGIN_FORM_REX_EXP.password.test(value)
+    })
+  }
 
   handleSubmit = e => {
-    e.preventDefault();
+    e.preventDefault()
     // send request
-    this.setState(INITIAL_VALUES);
-  };
+    this.setState(INITIAL_VALUES)
+  }
 
   render () {
-    const { email, password, isEmailValid, isPasswordValid } = this.state;
+    const { email, password, isEmailValid, isPasswordValid } = this.state
 
     const emailClassName = classNames(styles.input, {
       [styles.inputValid]: isEmailValid,
-      [styles.inputInvalid]: !isEmailValid,
-    });
+      [styles.inputInvalid]: !isEmailValid
+    })
 
     const passwordClassName = classNames(styles.input, {
       [styles.inputValid]: isPasswordValid,
-      [styles.inputInvalid]: !isPasswordValid,
-    });
+      [styles.inputInvalid]: !isPasswordValid
+    })
 
     return (
       <div className={styles.formContainer}>
@@ -87,8 +87,8 @@ class LoginForm extends Component {
           <button type='submit'>Login</button>
         </form>
       </div>
-    );
+    )
   }
 }
 
-export default LoginForm;
+export default LoginForm

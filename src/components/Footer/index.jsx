@@ -1,9 +1,9 @@
-import classNames from 'classnames';
-import styles from './Footer.module.sass';
-import ThemeContext from '../../contexts/themeContext';
-import CONSTANTS from '../../constants';
+import classNames from 'classnames'
+import styles from './Footer.module.sass'
+import ThemeContext from '../../contexts/themeContext'
+import CONSTANTS from '../../constants'
 
-const { LIGHT, DARK, PINK } = CONSTANTS.THEME;
+const { LIGHT, DARK, PINK } = CONSTANTS.THEME
 
 function Footer () {
   return (
@@ -12,13 +12,13 @@ function Footer () {
         const footerClassName = classNames({
           [styles.lightTheme]: theme === LIGHT,
           [styles.darkTheme]: theme === DARK,
-          [styles.pinkTheme]: theme === PINK,
-        });
+          [styles.pinkTheme]: theme === PINK
+        })
 
-        return <footer className={footerClassName}>Footer</footer>;
+        return <footer className={footerClassName}>Footer</footer>
       }}
     </ThemeContext.Consumer>
-  );
+  )
 }
 
-export default Footer;
+export default Footer

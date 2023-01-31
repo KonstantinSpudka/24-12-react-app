@@ -1,29 +1,29 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
 class PhonesProvider extends Component {
   constructor (props) {
-    super(props);
+    super(props)
 
     this.state = {
       phones: [],
       isFetching: false,
-      error: null,
-    };
+      error: null
+    }
   }
 
   componentDidMount () {
-    this.setState({ isFetching: true });
+    this.setState({ isFetching: true })
     fetch('/data/phones.json')
       .then(res => res.json())
       .then(data => this.setState({ phones: data }))
       .catch(err => this.setState({ error: err }))
       .finally(() => {
-        this.setState({ isFetching: false });
-      });
+        this.setState({ isFetching: false })
+      })
   }
 
   render () {
-    const { phones, isFetching, error } = this.state;
+    const { phones, isFetching, error } = this.state
     return (
       <>
         {isFetching && <div>Loading...</div>}
@@ -36,8 +36,8 @@ class PhonesProvider extends Component {
           ))}
         </ol>
       </>
-    );
+    )
   }
 }
 
-export default PhonesProvider;
+export default PhonesProvider

@@ -1,4 +1,4 @@
-import * as yup from 'yup';
+import * as yup from 'yup'
 
 export const USER_VALIDATION_SCHEMA = yup.object({
   firstName: yup
@@ -6,8 +6,8 @@ export const USER_VALIDATION_SCHEMA = yup.object({
     .trim()
     .min(2)
     .max(64)
-    .required(),
-});
+    .required()
+})
 
 export const CONTACT_VALIDATION_SCHEMA = yup.object({
   name: yup
@@ -22,8 +22,8 @@ export const CONTACT_VALIDATION_SCHEMA = yup.object({
     .matches(/^\+\d{12}$/, 'Phone number must correspond pattern +111111111111')
     .required(),
   email: yup.string().email(),
-  birthday: yup.date().max(new Date()),
-});
+  birthday: yup.date().max(new Date())
+})
 
 // ------------------------------------------------------------------------
 const USER_SCHEMA = yup.object({
@@ -37,8 +37,8 @@ const USER_SCHEMA = yup.object({
   email: yup
     .string()
     .email()
-    .required(),
-});
+    .required()
+})
 
 // USER_SCHEMA.validate({ name: 'Agent0047', email: 'test@test.com' })
 //   .then(data => console.log(data))
@@ -69,8 +69,8 @@ const USER_AUTO_SCHEMA = yup.object({
     .matches(/^[A-Z]{2}/, 'Enter normal region')
     .matches(/^..[0-9]{4}/, 'Enter normal number')
     .matches(/[A-Z]{2}$/, 'Enter normal seria')
-    .required(),
-});
+    .required()
+})
 // USER_AUTO_SCHEMA.validate({
 //   model: 'Audi',
 //   productionDate: new Date(2004, 0, 1),

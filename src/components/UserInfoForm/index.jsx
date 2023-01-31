@@ -1,16 +1,16 @@
-import { Formik, Form, Field, ErrorMessage } from 'formik';
-import React from 'react';
-import { USER_VALIDATION_SCHEMA } from '../../utils/validate/validationSchemas';
+import { Formik, Form, Field, ErrorMessage } from 'formik'
+import React from 'react'
+import { USER_VALIDATION_SCHEMA } from '../../utils/validate/validationSchemas'
 
 // Formik взяв на себе керуванням станом керованого компонента
 // + містить шаблонний код його обробників
 function UserInfoForm () {
-  const userInitialValues = { firstName: '' };
+  const userInitialValues = { firstName: '' }
 
   const handleSubmit = (values, formikBag) => {
-    console.log('values :>> ', values);
-    formikBag.resetForm();
-  };
+    console.log('values :>> ', values)
+    formikBag.resetForm()
+  }
 
   return (
     <Formik
@@ -37,10 +37,10 @@ function UserInfoForm () {
               Cancel
             </button>
           </Form>
-        );
+        )
       }}
     </Formik>
-  );
+  )
 }
 
-export default UserInfoForm;
+export default UserInfoForm

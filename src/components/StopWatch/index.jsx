@@ -1,53 +1,51 @@
-
-
-import { Component } from 'react';
+import { Component } from 'react'
 
 class StopWatch extends Component {
-  constructor(props) {
-    super(props);
+  constructor (props) {
+    super(props)
 
     this.state = {
-      count: new Date(0, 0, 0, 0, 0, 0, 0),
-    };
-    this.id = null;
+      count: new Date(0, 0, 0, 0, 0, 0, 0)
+    }
+    this.id = null
   }
 
-  componentDidMount() {
-    this.start();
+  componentDidMount () {
+    this.start()
   }
-  componentDidUpdate() {}
-  componentWillUnmount() {
-    this.stop(0);
+  componentDidUpdate () {}
+  componentWillUnmount () {
+    this.stop(0)
   }
 
   tick = () => {
-    const { count } = this.state;
+    const { count } = this.state
     // не змінювари стан напряму!!! стан іммутабельний!!!
-    const newCount = new Date(count.valueOf());
-    console.log('tick');
+    const newCount = new Date(count.valueOf())
+    console.log('tick')
     // newCount.setHours(count.getHours());
     // newCount.setMinutes(count.getMinutes());
-    newCount.setSeconds(count.getSeconds() + 1);
-    this.setState({ count: newCount });
-  };
+    newCount.setSeconds(count.getSeconds() + 1)
+    this.setState({ count: newCount })
+  }
 
   start = () => {
     if (!this.id) {
-      this.id = setInterval(this.tick, 1000);
+      this.id = setInterval(this.tick, 1000)
     }
-  };
+  }
 
   stop = () => {
-    clearInterval(this.id);
-    this.id = null;
-  };
+    clearInterval(this.id)
+    this.id = null
+  }
 
   reset = () => {
-    this.setState({ count: new Date(0, 0, 0, 0, 0, 0, 0) });
-  };
+    this.setState({ count: new Date(0, 0, 0, 0, 0, 0, 0) })
+  }
 
-  render() {
-    const { count } = this.state;
+  render () {
+    const { count } = this.state
 
     return (
       <article>
@@ -56,8 +54,8 @@ class StopWatch extends Component {
         <button onClick={this.stop}>Stop</button>
         <button onClick={this.reset}>Reset</button>
       </article>
-    );
+    )
   }
 }
 
-export default StopWatch;
+export default StopWatch

@@ -1,30 +1,30 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react'
 
 function ClickerCounter () {
-  const [clickCount, setClickCount] = useState(0);
+  const [clickCount, setClickCount] = useState(0)
 
   useEffect(() => {
     // після кожного рендеру = componentDidMount + componentDidUpdate
-    document.title = clickCount;
-  }, [clickCount]);
+    document.title = clickCount
+  }, [clickCount])
 
   const handleClick = () => {
-    setClickCount(clickCount => clickCount + 1);
-  };
+    setClickCount(clickCount => clickCount + 1)
+  }
 
   useEffect(() => {
-    document.body.addEventListener('click', handleClick);
+    document.body.addEventListener('click', handleClick)
 
     // скидання ефекту
     return () => {
-      document.body.removeEventListener('click', handleClick);
-    };
-  }, []);
+      document.body.removeEventListener('click', handleClick)
+    }
+  }, [])
 
-  return <div>{clickCount}</div>;
+  return <div>{clickCount}</div>
 }
 
-export default ClickerCounter;
+export default ClickerCounter
 
 // useEffect(() => {
 //   Ефект після кожного рендера (componentDidMount + componentDidUpdate)

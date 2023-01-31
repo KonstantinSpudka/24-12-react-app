@@ -1,5 +1,5 @@
-import React from 'react';
-import ContactForm from '../../components/forms/ContactForm';
+import React from 'react'
+import ContactForm from '../../components/forms/ContactForm'
 
 function ContactPage () {
   return (
@@ -7,7 +7,7 @@ function ContactPage () {
       <h2>Contact Form</h2>
       <ContactForm />
     </section>
-  );
+  )
 }
 
-export default ContactPage;
+export default ContactPage

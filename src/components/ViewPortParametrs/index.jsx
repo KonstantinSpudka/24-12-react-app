@@ -1,35 +1,35 @@
-import { Component } from 'react';
+import { Component } from 'react'
 
 class ViewPortParams extends Component {
-  constructor(props) {
-    super(props);
+  constructor (props) {
+    super(props)
 
     this.state = {
       x: window.innerWidth,
-      y: window.innerHeight,
-    };
+      y: window.innerHeight
+    }
   }
 
   resizeHandler = () => {
-    this.setState({ x: window.innerWidth, y: window.innerHeight });
-  };
-
-  componentDidMount() {
-    window.addEventListener('resize', this.resizeHandler);
+    this.setState({ x: window.innerWidth, y: window.innerHeight })
   }
 
-  componentWillUnmount() {
-    window.removeEventListener('resize', this.resizeHandler);
+  componentDidMount () {
+    window.addEventListener('resize', this.resizeHandler)
   }
 
-  render() {
-    const { x, y } = this.state;
+  componentWillUnmount () {
+    window.removeEventListener('resize', this.resizeHandler)
+  }
+
+  render () {
+    const { x, y } = this.state
     return (
       <div>
         Width: {x}, Height: {y}
       </div>
-    );
+    )
   }
 }
 
-export default ViewPortParams;
+export default ViewPortParams

@@ -1,43 +1,39 @@
-  import { Component } from 'react';
+import { Component } from 'react'
 
-  // import StopWatch from './Components/StopWatch';
+// import StopWatch from './Components/StopWatch';
 
-  // function App() {
-  //   return <StopWatch />;
-  // }
+// function App() {
+//   return <StopWatch />;
+// }
 
-  // export default App;
+// export default App;
 
-  import StopWatch from './Components/ViewPortParametrs/index2';
+import StopWatch from './Components/ViewPortParametrs/index2'
 
-  class App extends Component {
-  constructor(props){
-    super(props);
+class App extends Component {
+  constructor (props) {
+    super(props)
     this.state = {
-      isVisible: false,
+      isVisible: false
     }
   }
 
   handleClick = () => {
-    const {isVisible} = this.state;
-    this.setState({isVisible: !isVisible})
+    const { isVisible } = this.state
+    this.setState({ isVisible: !isVisible })
   }
 
-    render() {
-      const {isVisible} = this.state;
-  return (
-    <>
-    <button onClick={this.handleClick}>
-      {isVisible ? 'Unmount' : 'Mount'}
-    </button>
-    {isVisible&&<StopWatch />}
-  
-    </>
-  )
-  
-
-      
-    }
+  render () {
+    const { isVisible } = this.state
+    return (
+      <>
+        <button onClick={this.handleClick}>
+          {isVisible ? 'Unmount' : 'Mount'}
+        </button>
+        {isVisible && <StopWatch />}
+      </>
+    )
   }
+}
 
-  export default App;
+export default App

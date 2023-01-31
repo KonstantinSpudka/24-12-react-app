@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from 'react';
-import getUsers from '../../api';
+import React, { useEffect, useState } from 'react'
+import getUsers from '../../api'
 
 function UsersLoaderH () {
-  const [users, setUsers] = useState([]);
-  const [isFetching, setIsFetching] = useState(false);
-  const [error, setError] = useState(null);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [results, setResults] = useState(5);
+  const [users, setUsers] = useState([])
+  const [isFetching, setIsFetching] = useState(false)
+  const [error, setError] = useState(null)
+  const [currentPage, setCurrentPage] = useState(1)
+  const [results, setResults] = useState(5)
 
   const loadUsers = () => {
-    setIsFetching(true);
+    setIsFetching(true)
     // getUsers({ page: currentPage, results: 5 })
     fetch(
       `https://randomuser.me/api?page=${currentPage}&results=${results}&seed=pe2022`
@@ -17,27 +17,27 @@ function UsersLoaderH () {
       .then(response => response.json())
       .then(data => setUsers(data.results))
       .catch(e => setError(e))
-      .finally(() => setIsFetching(false));
-  };
+      .finally(() => setIsFetching(false))
+  }
 
   useEffect(() => {
-    loadUsers();
-  }, [currentPage, results]);
+    loadUsers()
+  }, [currentPage, results])
 
   const prevPage = () => {
     if (currentPage > 1) {
-      setCurrentPage(currentPage => currentPage - 1);
+      setCurrentPage(currentPage => currentPage - 1)
     }
-  };
+  }
 
   const nextPage = () => {
-    setCurrentPage(currentPage => currentPage + 1);
+    setCurrentPage(currentPage => currentPage + 1)
     // setValue(10)
     // setValue(function (value) {
     //   return value + 1;
     // });
     // setValue(value=>value + 1);
-  };
+  }
 
   return (
     <>
@@ -55,7 +55,7 @@ function UsersLoaderH () {
         </>
       )}
     </>
-  );
+  )
 }
 
-export default UsersLoaderH;
+export default UsersLoaderH

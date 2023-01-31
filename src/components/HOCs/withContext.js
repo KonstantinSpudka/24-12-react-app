@@ -3,12 +3,12 @@ function withContext (WrappedComponent, Context) {
     return (
       <Context.Consumer>
         {value => {
-          return <WrappedComponent value={value} {...props} />;
+          return <WrappedComponent value={value} {...props} />
         }}
       </Context.Consumer>
-    );
+    )
   }
-  return WrappedComponentWithContext;
+  return WrappedComponentWithContext
 }
 
-export default withContext;
+export default withContext

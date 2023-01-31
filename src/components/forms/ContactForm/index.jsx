@@ -1,25 +1,25 @@
-import classNames from 'classnames';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
-import React from 'react';
-import { CONTACT_VALIDATION_SCHEMA } from '../../../utils/validate/validationSchemas';
-import Input from '../Input';
-import styles from './ContactForm.module.sass';
+import classNames from 'classnames'
+import { Formik, Form, Field, ErrorMessage } from 'formik'
+import React from 'react'
+import { CONTACT_VALIDATION_SCHEMA } from '../../../utils/validate/validationSchemas'
+import Input from '../Input'
+import styles from './ContactForm.module.sass'
 // Name, Tel, Email, Birthday
 
 function ContactForm () {
-  const initialValues = { name: '', phone: '', email: '', birthday: '' };
+  const initialValues = { name: '', phone: '', email: '', birthday: '' }
 
   const handleSubmit = (values, formikBag) => {
-    console.log('Submit form with values:', values);
-    formikBag.resetForm();
-  };
+    console.log('Submit form with values:', values)
+    formikBag.resetForm()
+  }
 
   const classes = {
     error: styles.error,
     input: styles.input,
     valid: styles.valid,
-    invalid: styles.invalid,
-  };
+    invalid: styles.invalid
+  }
 
   return (
     // initialValues onSubmit - обов'язкові пропи для Formik
@@ -60,7 +60,7 @@ function ContactForm () {
         <button type='submit'>Save</button>
       </Form>
     </Formik>
-  );
+  )
 }
 
-export default ContactForm;
+export default ContactForm

@@ -1,7 +1,7 @@
-import { withDataLoading } from '../HOCs';
+import { withDataLoading } from '../HOCs'
 
 const PhonesLoadedList = props => {
-  const { data: phones, isFetching, error } = props;
+  const { data: phones, isFetching, error } = props
 
   return (
     <>
@@ -15,9 +15,9 @@ const PhonesLoadedList = props => {
         ))}
       </ol>
     </>
-  );
-};
+  )
+}
 
-const PhonesLoadedListWithLoadingData = withDataLoading(PhonesLoadedList);
+const PhonesLoadedListWithLoadingData = withDataLoading(PhonesLoadedList)
 
-export default PhonesLoadedListWithLoadingData;
+export default PhonesLoadedListWithLoadingData

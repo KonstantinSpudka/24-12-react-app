@@ -1,29 +1,29 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
 class UsersProvider extends Component {
   constructor (props) {
-    super(props);
+    super(props)
 
     this.state = {
       users: [],
       isFetching: false,
-      error: null,
-    };
+      error: null
+    }
   }
 
   componentDidMount () {
-    this.setState({ isFetching: true });
+    this.setState({ isFetching: true })
     fetch('/data/users.json')
       .then(res => res.json())
       .then(data => this.setState({ users: data }))
       .catch(err => this.setState({ error: err }))
       .finally(() => {
-        this.setState({ isFetching: false });
-      });
+        this.setState({ isFetching: false })
+      })
   }
 
   render () {
-    const { users, isFetching, error } = this.state;
+    const { users, isFetching, error } = this.state
     return (
       <>
         {isFetching && <div>Loading...</div>}
@@ -37,8 +37,8 @@ class UsersProvider extends Component {
           ))}
         </ul>
       </>
-    );
+    )
   }
 }
 
-export default UsersProvider;
+export default UsersProvider

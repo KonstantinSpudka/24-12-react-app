@@ -3,7 +3,7 @@ const CONSTANTS = {
     LIGHT: 'LIGHT',
     DARK: 'DARK',
     PINK: 'PINK',
-  },
-};
+  }
+}
 
-export default CONSTANTS;
+export default CONSTANTS
