@@ -1,47 +1,10 @@
-// import { Component } from 'react';
 
-// import UserList from './Components/UserList';
 
-// function App() {
-//   return <UserList />;
-// }
+import React from 'react';
+import ContactPage from './pages/ContactPage';
 
-// export default App;
-
-import { Component } from 'react';
-import { FaChromecast } from 'react-icons/fa';
-import ThemeButton from './components/ThemeButton';
-import UsersList from './components/UsersList';
-
-class App extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      isLight: true,
-    };
-  }
-
-  setTheme = () => {
-    const { isLight } = this.state;
-    this.setState({ isLight: !isLight });
-  };
-
-  render() {
-    const { isLight } = this.state;
-    return (
-      <>
-        <FaChromecast />
-        <ThemeButton isLight={isLight} changeTheme={this.setTheme} />
-        <UsersList isLight={isLight} />
-      </>
-    );
-  }
+function App () {
+  return <ContactPage />;
 }
-
-// App;
-//   ThemeButton; напис
-//   UsersList;
-//     UsersListItem; підсвітка
 
 export default App;
